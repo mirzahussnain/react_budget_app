@@ -87,7 +87,14 @@ const initialState = {
         { id: "IT", name: 'IT', cost: 500 },
         { id: "Admin", name: 'Admin', cost: 90 },
     ],
-    currency: '£'
+    // currency: [
+    //     {name:"Dollar",symbol:"$",selected:false},
+    //     {name:"Pound",symbol:"£",selected:true},
+    //     {name:"Euro",symbol:"€",selected:false},
+    //     {name:"Pakistani Rupee",symbol:"Rs.",selected:false},
+    //     {name:"Indian Rupee",symbol:"₹",selected:false},
+    // ],
+    currency:'£',
 };
 
 // 2. Creates the context this is the thing our components import and use to get the state
