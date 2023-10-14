@@ -17,7 +17,9 @@ export const AppReducer = (state, action) => {
                 total_budget = 0;
                 state.expenses.map((currentExp)=> {
                     if(currentExp.name === action.payload.name) {
+                        console.log(`current value: ${currentExp.cost}`);
                         currentExp.cost = action.payload.cost + currentExp.cost;
+                        console.log(`New value: ${currentExp.cost}`);
                     }
                     return currentExp
                 });
@@ -57,6 +59,28 @@ export const AppReducer = (state, action) => {
                 ...state,
                 budget
             };
+        case 'DECREASE_EXPENSE':
+            console.log("Inside DECREASE EXPENSE");
+            action.type="DONE";
+            state.expenses.map((currentExp)=>{
+                if(currentExp.name===action.payload.name){
+                    console.log(`current value: ${currentExp.cost}`);
+                    if(currentExp.cost!==0){
+                        currentExp.cost-=action.payload.cost;
+                        budget=state.budget + action.payload.cost;
+                        console.log(`New value: ${currentExp.cost}`);
+                    }
+                    else{
+                        alert("Expense is already 0 and can't be further decreased!!");
+                    }
+                   
+                }
+                return currentExp
+            })
+            action.type="DONE";
+            return{
+                ...state,budget
+            };   
         case 'SET_BUDGET':
             action.type = "DONE";
             state.budget = action.payload;

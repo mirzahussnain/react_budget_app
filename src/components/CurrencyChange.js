@@ -14,16 +14,19 @@ const CurrencyChange=()=>{
     }
    
     return(
-        <select class="form-select text-white" style={{fontWeight:'bolder', marginLeft: '2rem',backgroundColor:'rgb(125,255,153)',height:'70%' }}
-        onChange={(event)=>changeCurrency(event.target.value)}
-        >
-            <option defaultValue>Select Currency...</option>
-           <option value="£">£ Pound</option>
-           <option value="€">€ Euro</option>
-           <option value="₹">₹ Indian Rupee</option>
-           <option value="$">$ Dollar</option>
-           <option value="Rs.">Rs. Pakistani Rupee</option>
-        </select>
+        
+        <div className="d-flex flex-row">
+            <label className="p-2" style={{fontWeight:'bolder'}} for="Currency">Currency:</label>
+            <select className="form-select text-white p-2 font-weight-bolder " style={{ fontWeight:'bolder',marginLeft: '0.1rem',backgroundColor:'rgb(125,255,153)',height:'70%',width:'70%' }}
+            onChange={(event)=>changeCurrency(event.target.value)}
+            >
+               <option className="text-black" defaultValue="">Select Currency..</option>
+               <option className="text-black" value="$">$ Dollar</option>
+               <option className="text-black" value="£">£ Pound</option>
+               <option className="text-black" value="€">€ Euro</option>
+               <option className="text-black" value="₹">₹ Rupee</option>
+            </select>
+        </div>
     );
 }
 
